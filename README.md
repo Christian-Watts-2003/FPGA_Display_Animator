@@ -54,7 +54,6 @@ sim/
 
 Basys-3-Master.xdc
 display_animator.bit
-DemoVideo_Watts_White.MOV
 ```
 
 ## Tools
