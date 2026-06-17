@@ -27,9 +27,9 @@ The top-level wrapper `display_animator.sv` instantiates `fsm_top` with synthesi
 
 ## Simulation
 
-![Overall FSM Simulation](docs/OverallSim.png)
+![Overall FSM Simulation](sim/OverallSim.png)
 
-![Sequence Timer Simulation](docs/TimerSim.png)
+![Sequence Timer Simulation](sim/TimerSim.png)
 
 ## Files
 
