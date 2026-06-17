@@ -63,5 +63,5 @@ SystemVerilog (IEEE 1800), Xilinx Vivado, Digilent Basys3 (Artix-7)
 
 ## Authors
 
-Christian Watts — B.S. Electrical Engineering, University of Alabama
+Christian Watts — B.S. Electrical Engineering, University of Alabama, 
 Chapman White — B.S. Electrical Engineering, University of Alabama
