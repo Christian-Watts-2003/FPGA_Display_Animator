@@ -1,6 +1,6 @@
 # FPGA Display Animator
 
-A SystemVerilog design that drives the Basys3's four-digit seven-segment display through a set of selectable animations, controlled entirely via the onboard switches. Synthesized and deployed to hardware — a demo video is included in `docs/`.
+A SystemVerilog design that drives the Basys3's four-digit seven-segment display through a set of selectable animations, controlled entirely via the onboard switches.
 
 ## What It Does
 
@@ -15,7 +15,7 @@ The four sequences are:
 
 ## Architecture
 
-The design is built around a three-state FSM (`IDLE`, `LOAD`, `DISPLAY`) in `fsm_top.sv`, which coordinates three submodules:
+The design is built around a three-state FSM (`IDLE`, `LOAD`, `DISPLAY`) in `fsm_top.sv`, which drives three submodules:
 
 **`sequence_timer`** generates a clock enable (`ce`) pulse at a parameterized rate. A `period_double` register optionally halves the animation speed when the speed switch is off. This keeps the timing logic completely separated from the display logic.
 
@@ -31,38 +31,37 @@ The top-level wrapper `display_animator.sv` instantiates `fsm_top` with synthesi
 
 ![Sequence Timer Simulation](docs/TimerSim.png)
 
-## Hardware Demo
-
-A recorded demo of the design running on the Basys3 is in `docs/DemoVideo_Watts_White.MOV`.
-
 ## Files
 
 ```
-display-animator/
-├── src/
-│   ├── display_animator.sv          # Synthesis top-level wrapper
-│   ├── fsm_top.sv                   # FSM and submodule instantiation
-│   ├── animation_sequences.sv       # Sequence bank and user word rotation
-│   ├── sequence_timer.sv            # Parameterized clock enable generator
-│   ├── sseg_driver.sv               # Multiplexed seven-segment driver
-│   ├── hex7seg.sv                   # Hex to seven-segment decoder
-│   └── tb/
-│       ├── tb_fsm_top.sv
-│       ├── tb_mini_sequence_generator.sv
-│       └── tb_sequence_timer.sv
-├── constraints/
-│   └── Basys-3-Master.xdc
-└── docs/
-    ├── OverallSim.png
-    ├── TimerSim.png
-    ├── display_animator.bit
-    └── DemoVideo_Watts_White.MOV
+srcs/
+├── display_animator.sv          # Synthesis top-level wrapper
+├── fsm_top.sv                   # FSM and submodule instantiation
+├── animation_sequences.sv       # Sequence bank and user word rotation
+├── sequence_timer.sv            # Parameterized clock enable generator
+├── sseg_driver.sv               # Multiplexed seven-segment driver
+└── hex7seg.sv                   # Hex to seven-segment decoder
+
+tb/
+├── tb_fsm_top.sv
+├── tb_mini_sequence_generator.sv
+└── tb_sequence_timer.sv
+
+sim/
+├── OverallSim.png
+├── TimerSim.png
+└── timing.txt
+
+Basys-3-Master.xdc
+display_animator.bit
+DemoVideo_Watts_White.MOV
 ```
 
 ## Tools
 
 SystemVerilog (IEEE 1800), Xilinx Vivado, Digilent Basys3 (Artix-7)
 
-## Author
+## Authors
 
 Christian Watts — B.S. Electrical Engineering, University of Alabama
+Chapman White — B.S. Electrical Engineering, University of Alabama
